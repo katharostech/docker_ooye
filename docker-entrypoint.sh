@@ -1,0 +1,54 @@
+#!/bin/sh
+
+set -e
+
+cat << EOF > config.js
+module.exports = {
+	discordToken: "${DISCORD_TOKEN}"
+}
+EOF
+
+admin_invite_line=""
+admin_invite_empty=""
+
+if [ -n "${ADMIN_INVITE}" ]; then
+  admin_invite_line="- ${ADMIN_INVITE}"
+else
+  admin_invite_empty="[]"
+fi
+
+cat << EOF > registration.yaml
+id: de8c56117637cb5d9f4ac216f612dc2adb1de4c09ae8d13553f28c33a28147c7
+hs_token: ${HS_TOKEN}
+as_token: ${AS_TOKEN}
+url: ${URL}
+sender_localpart: ${SENDER_LOCALPART}
+protocols:
+  - discord
+namespaces:
+  users:
+    - exclusive: true
+      regex: '@_ooye_.*'
+  aliases:
+    - exclusive: true
+      regex: '#_ooye_.*'
+rate_limited: false
+ooye:
+  namespace_prefix: ${NAMESPACE_PREFIX}
+  max_file_size: 5000000
+  server_name: ${SERVER_NAME}
+  server_origin: ${SERVER_ORIGIN}
+  content_length_workaround: ${CONTENT_LENGTH_WORKAROUND}
+  invite: ${admin_invite_empty}
+    ${admin_invite_line}
+EOF
+
+echo "Here is your registration YAML:"
+echo ""
+cat registration.yaml
+
+echo "Setting up / seeding database if necessary"
+node scripts/seed.js
+
+echo "Starting server"
+node start.js
