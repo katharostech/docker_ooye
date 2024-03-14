@@ -46,9 +46,10 @@ EOF
 echo "Here is your registration YAML:"
 echo ""
 cat registration.yaml
+echo ""
 
 echo "Setting up / seeding database if necessary"
 node scripts/seed.js
 
 echo "Starting server"
-node start.js
+exec node start.js

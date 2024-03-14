@@ -17,6 +17,8 @@ ENV CONTENT_LENGTH_WORKAROUND="false"
 ENV NAMESPACE_PREFIX="_ooye_"
 ENV SENDER_LOCALPART="_ooye_bot"
 ENV URL="http://localhost:6693"
+# These may be generated with:
+# dd if=/dev/urandom bs=32 count=1 2> /dev/null | basenc --base16 | dd conv=lcase 2> /dev/null
 ENV HS_TOKEN="[a unique 64 character hex string]"
 ENV AS_TOKEN="[a unique 64 character hex string]"
 
