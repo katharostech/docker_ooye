@@ -137,13 +137,13 @@ bridge, and connect that to the _same_ matrix server, you may get errors from OO
 that a user ID is already taken. This is because OOYE will create users in matrix that correspond
 with the Discord users, but they will have their user ID prefixed with a namespace like `_ooye_`.
 If you start a new OOYE bridge and connect it to the same server, it will try to create those
-corresponding users with the same ID. You can fix this by setting the `NAMESPACE` environment
+corresponding users with the same ID. You can fix this by setting the `NAMESPACE_PREFIX` environment
 variable in the `environment:` section of your `docker-compose.yaml`, for example:
 
 ```yaml
 # ...
     environment:
-      NAMESPACE: _ooye2_
+      NAMESPACE_PREFIX: _ooye2_
 # ...
 ```
 
