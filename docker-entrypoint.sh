@@ -22,7 +22,7 @@ id: de8c56117637cb5d9f4ac216f612dc2adb1de4c09ae8d13553f28c33a28147c7
 hs_token: ${HS_TOKEN}
 as_token: ${AS_TOKEN}
 url: ${URL}
-sender_localpart: ${SENDER_LOCALPART}
+sender_localpart: ${NAMESPACE}_bridge_bot
 protocols:
   - discord
 namespaces:
