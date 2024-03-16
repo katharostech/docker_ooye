@@ -12,7 +12,7 @@ admin_invite_line=""
 admin_invite_empty=""
 
 if [ -n "${ADMIN_INVITE}" ]; then
-  admin_invite_line="- ${ADMIN_INVITE}"
+  admin_invite_line="- '${ADMIN_INVITE}'"
 else
   admin_invite_empty="[]"
 fi
