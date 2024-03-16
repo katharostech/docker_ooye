@@ -128,16 +128,26 @@ so you can follow these steps once for each guild you want to bridge.
   users will be able to join.
 
 
+### Configuring Your Matrix Rooms
+
+Your `ADMIN_INVITE` user should receive an invite to any bridge discord spaces. This allows you
+to, for instance, make the space public, so that other users can join. Otherwise, you can keep
+the space private, and invite whomever you wish.
+
+That's the last step, your matrix bridge is finished!
+
 ## Troubleshooting
 
 ### `MatrixServerError: User ID already taken.`
 
 If you start an OOYE bridge and connected it to your matrix server, and then you start a new OOYE
 bridge, and connect that to the _same_ matrix server, you may get errors from OOYE complaining
-that a user ID is already taken. This is because OOYE will create users in matrix that correspond
+that a user ID is already taken. This seems to be because OOYE will create users in matrix that correspond
 with the Discord users, but they will have their user ID prefixed with a namespace like `_ooye_`.
 If you start a new OOYE bridge and connect it to the same server, it will try to create those
-corresponding users with the same ID. You can fix this by setting the `NAMESPACE_PREFIX` environment
+corresponding users with the same ID.
+
+You might be able to fix this by setting the `NAMESPACE_PREFIX` environment
 variable in the `environment:` section of your `docker-compose.yaml`, for example:
 
 ```yaml
@@ -146,4 +156,6 @@ variable in the `environment:` section of your `docker-compose.yaml`, for exampl
       NAMESPACE_PREFIX: _ooye2_
 # ...
 ```
+
+This seems to resolve some errors, but not all of them, so we're still investigating this.
 
