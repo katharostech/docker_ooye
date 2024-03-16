@@ -3,8 +3,6 @@
 A docker container for the Out Of Your Element ( OOYE ) Matrix-to-Discord bridge. OOYE makes it
 _super_ easy to bridge your Discord server to matrix, and this container makes it easy to deploy.
 
-> **Under Construction 🚧:** The instructions are under construction.
-
 ## Usage
 
 ### Create Discord Bot
