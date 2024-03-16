@@ -28,10 +28,10 @@ protocols:
 namespaces:
   users:
     - exclusive: true
-      regex: '@_ooye_.*'
+      regex: '@_${NAMESPACE}_.*'
   aliases:
     - exclusive: true
-      regex: '#_ooye_.*'
+      regex: '#_${NAMESPACE}_.*'
 rate_limited: false
 ooye:
   namespace_prefix: ${NAMESPACE_PREFIX}
