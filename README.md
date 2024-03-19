@@ -1,7 +1,9 @@
 # docker_ooye
 
-A docker container for the Out Of Your Element ( OOYE ) Matrix-to-Discord bridge. OOYE makes it
+A docker container for the [Out Of Your Element][ooye] ( OOYE ) Matrix-to-Discord bridge. OOYE makes it
 _super_ easy to bridge your Discord server to matrix, and this container makes it easy to deploy.
+
+[ooye]: https://gitdab.com/cadence/out-of-your-element
 
 ## Usage
 
