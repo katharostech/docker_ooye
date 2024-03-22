@@ -31,6 +31,12 @@ Now we can run our OOYE bridge.
   ```
   dd if=/dev/urandom bs=32 count=1 2> /dev/null | basenc --base16 | dd conv=lcase 2> /dev/null
   ```
+2. Create a blank database file for ooye:
+   ```bash
+touch ooye.db
+# OOYE runs as user 1001 in the container
+sudo chown 1001:1001 ooye.db
+```
 2. Create a `docker-compose.yml` like the one below, but with your server info and tokens substituted
   in the `environment` section.
   Note the `ADMIN_INVITE` section, in which you should specify the matrix ID of the user that you want
@@ -50,10 +56,7 @@ services:
     ports:
       - 6693:6693
     volumes:
-      - ooye-data:/app/db
-
-volumes:
-  ooye-data:
+      - ./ooye.db:/app/db/ooye.db
   ```
 3. In the same folder as your `docker-compose.yml` run `docker compose up -d`.
 4. You'll see the container download and start up. It will exit immediately after startup, that is
@@ -126,7 +129,6 @@ so you can follow these steps once for each guild you want to bridge.
 5. Visit your Discord guild and go through every channel and post something like _connecting matrix bridge_.
   Posting in a Discord channel will cause the bridge to create a corresponding matrix channel that matrix
   users will be able to join.
-
 
 ### Configuring Your Matrix Rooms
 
