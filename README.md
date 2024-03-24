@@ -32,9 +32,10 @@ Now we can run our OOYE bridge.
   dd if=/dev/urandom bs=32 count=1 2> /dev/null | basenc --base16 | dd conv=lcase 2> /dev/null
   ```
 2. Create a blank database file for ooye:
-   ```bash
+```bash
 touch ooye.db
 # OOYE runs as user 1001 in the container
+# so we make sure the database owner matches.
 sudo chown 1001:1001 ooye.db
 ```
 2. Create a `docker-compose.yml` like the one below, but with your server info and tokens substituted
