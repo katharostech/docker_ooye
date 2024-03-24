@@ -42,7 +42,7 @@ sudo chown 1001:1001 ooye.db
   in the `environment` section.
   Note the `ADMIN_INVITE` section, in which you should specify the matrix ID of the user that you want
   to have admin access on the matrix spaces and channels that the bot creates and bridges.
-  ```yaml
+```yaml
 services:
   ooye:
     image: ghcr.io/katharostech/ooye:master
@@ -57,8 +57,11 @@ services:
     ports:
       - 6693:6693
     volumes:
-      - ./ooye.db:/app/db/ooye.db
-  ```
+      - ooye-data:/data
+
+volumes:
+  ooye-data:
+```
 3. In the same folder as your `docker-compose.yml` run `docker compose up -d`.
 4. You'll see the container download and start up. It will exit immediately after startup, that is
   expected.
