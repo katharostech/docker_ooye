@@ -5,7 +5,7 @@ RUN git clone --depth 1 --branch v2.0 https://gitdab.com/cadence/out-of-your-ele
 WORKDIR /app
 RUN npm i
 
-RUN adduser ooye -D
+RUN adduser ooye -Du 1001
 RUN chown -R ooye /app
 USER ooye
 
@@ -25,6 +25,6 @@ ENV AS_TOKEN="[a unique 64 character hex string]"
 
 VOLUME /app/db
 
-COPY --chmod=744 --chown=1000:1000 ./docker-entrypoint.sh /docker-entrypoint.sh
+COPY --chmod=744 --chown=ooye:ooye ./docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
