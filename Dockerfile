@@ -14,6 +14,8 @@ USER ooye
 ENV DISCORD_TOKEN="notarealdiscordtoken"
 ENV SERVER_NAME="notmyrealserver.com"
 ENV SERVER_ORIGIN="https://matrix.notmyrealserver.com"
+# Discord Guild ID to upload emojis to, if necessary.
+ENV EMOJI_GUILD=""
 ENV ADMIN_INVITE=""
 ENV CONTENT_LENGTH_WORKAROUND="false"
 ENV NAMESPACE_PREFIX="_ooye_"
