@@ -2,6 +2,9 @@
 
 set -e
 
+# Make sure the database exists
+touch /data/ooye.db
+
 cat << EOF > config.js
 module.exports = {
 	discordToken: "${DISCORD_TOKEN}"

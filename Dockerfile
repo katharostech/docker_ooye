@@ -8,7 +8,7 @@ RUN npm i
 RUN adduser ooye -Du 1001
 RUN chown -R ooye /app
 RUN ln -s /data/ooye.db /app/db/ooye.db
-RUN mkdir /data
+RUN mkdir /data && chown -R ooye:ooye /data
 USER ooye
 
 ENV DISCORD_TOKEN="notarealdiscordtoken"
