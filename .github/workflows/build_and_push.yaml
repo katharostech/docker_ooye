@@ -6,6 +6,7 @@ on:
       - master
     tags:
       - "v*"
+  workflow_dispatch:
 
 env:
   RELEASE_VERSION: ${{ github.ref_name }}
